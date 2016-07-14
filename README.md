@@ -5,15 +5,16 @@ It's licensed under the [MIT License](LICENSE).
 
 ## Installation
 
-Add this library to your project  composer:
+Add this library to your project using composer:
 
 `composer require nkreer/php-dwd`
 
-and include `vendor/autoload.php`
+To initialise, add the following to the top of your script
 
 ```php
 <?php
 include_once("vendor/autoload.php");
+use DWD\DWD;
 ```
 
 ## Method overview
@@ -48,7 +49,7 @@ DWD::isValid();
 
 ### Images
 
-If you need a link to the germany map,call
+If you need a link to the germany map (visualisation of the warnings), call
 
 ```php
 DWD::getGermanyMap();
