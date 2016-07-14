@@ -26,60 +26,60 @@
 
 namespace DWD;
 
-class Warning {
+class Warning{
 
-	private $data = [];
+    private $data = [];
 
-	public function __construct(array $data){
-		$this->data = $data;
-	}
+    public function __construct(array $data){
+        $this->data = $data;
+    }
 
-	public function getRegion(){
-		return $this->data["regionName"];
-	}
+    public function getRegion(){
+        return $this->data["regionName"];
+    }
 
-	public function getDescription(){
-		return $this->data["description"];
-	}
+    public function getDescription(){
+        return $this->data["description"];
+    }
 
-	public function getStartTime(){
-		return (int)$this->data["start"] / 1000;
-	}
+    public function getStartTime(){
+        return (int)$this->data["start"] / 1000;
+    }
 
-	public function getEndTime(){
-		return (int)$this->data["end"] / 1000;
-	}
+    public function getEndTime(){
+        return (int)$this->data["end"] / 1000;
+    }
 
-	public function getEvent(){
-		return $this->data["event"];
-	}
+    public function getEvent(){
+        return $this->data["event"];
+    }
 
-	public function getHeadline(){
-		return $this->data["headline"];
-	}
+    public function getHeadline(){
+        return $this->data["headline"];
+    }
 
-	public function getInstruction(){
-		return $this->data["instruction"];
-	}
+    public function getInstruction(){
+        return $this->data["instruction"];
+    }
 
-	public function getState(){
-		return [$this->data["state"], $this->data["stateShort"]];
-	}
+    public function getState(){
+        return [$this->data["state"], $this->data["stateShort"]];
+    }
 
-	public function getAltitudeStart(){
-		return $this->data["altitudeStart"];
-	}
+    public function getAltitudeStart(){
+        return $this->data["altitudeStart"];
+    }
 
-	public function getAltitudeEnd(){
-		return $this->data["altitudeEnd"];
-	}
+    public function getAltitudeEnd(){
+        return $this->data["altitudeEnd"];
+    }
 
-	public function getType(){
-		return $this->data["type"];
-	}
+    public function getType(){
+        return $this->data["type"];
+    }
 
-	public function getLevel(){
-		return $this->data["level"];
-	}
+    public function getLevel(){
+        return $this->data["level"];
+    }
 
 }

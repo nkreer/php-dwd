@@ -26,40 +26,41 @@
 
 namespace DWD;
 
-class DWD {
+class DWD{
 
-	const EXPIRE_TIME = 600; //10 minutes, as suggested by DWD
-	
-	/**
-	* @var Warning[]
-	*/
-	private static $warnings = [];
+    const EXPIRE_TIME = 600; //10 minutes, as suggested by DWD
 
-	/**
-	 * @var int
-	 */
-	private static $lastUpdate = 0;
+    /**
+     * @var Warning[]
+     */
+    private static $warnings = [];
+
+    /**
+     * @var int
+     */
+    private static $lastUpdate = 0;
 
     /**
      * @param $search
      * @return Warning[]
      */
-	public static function getWarning($search){
-		$result = [];
-		foreach(self::$warnings as $warning){
-			if(stripos($warning->getRegion(), $search) !== false ||
-			   stripos($warning->getState()[1], $search) !== false){
-				$result[] = $warning;
-			}
-		}
-		return $result;
-	}
+    public static function getWarning($search){
+        $result = [];
+        foreach(self::$warnings as $warning){
+            if(stripos($warning->getRegion(), $search) !== false ||
+                stripos($warning->getState()[1], $search) !== false
+            ){
+                $result[] = $warning;
+            }
+        }
+        return $result;
+    }
 
     /**
      * @return bool
      */
-	public static function update(){
-		$data = file_get_contents("http://www.dwd.de//DWD/warnungen/warnapp/json/warnings.json");
+    public static function update(){
+        $data = file_get_contents("http://www.dwd.de//DWD/warnungen/warnapp/json/warnings.json");
         if($data){
             self::$lastUpdate = time();
             $data = str_ireplace(["warnWetter.loadWarnings(", ");"], ["", ""], $data); //Convert JSONP to JSON
@@ -74,7 +75,7 @@ class DWD {
             return true;
         }
         return false;
-	}
+    }
 
     /**
      * @param array $warnings
