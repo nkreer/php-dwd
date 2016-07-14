@@ -1,0 +1,10 @@
+{
+  "name":"nkreer/php-dwd",
+  "description":"Wetterwarnungen from Deutscher Wetterdienst",
+  "license":"MIT",
+  "autoload":{
+    "psr-4": {
+      "DWD\\": "src/DWD/"
+    }
+  }
+}
